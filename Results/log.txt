@@ -1,0 +1,206 @@
+Dataset 1: (303, 14)
+Dataset 2: (1025, 14)
+Dataset 3: (1190, 12)
+IEEE slope values converted to missing because they were outside the documented coding: 1
+Merged dataset shape: (2518, 13)
+   age  sex  cp  trestbps  chol  ...  exang  oldpeak  slope  target    source
+0   63    1   3       145   233  ...      0      2.3    0.0       1  Kaggle_1
+1   37    1   2       130   250  ...      0      3.5    0.0       1  Kaggle_1
+2   41    0   1       130   204  ...      0      1.4    2.0       1  Kaggle_1
+3   56    1   1       120   236  ...      0      0.8    2.0       1  Kaggle_1
+4   57    0   0       120   354  ...      1      0.6    2.0       1  Kaggle_1
+
+[5 rows x 13 columns]
+
+Missing values:
+age         0
+sex         0
+cp          0
+trestbps    0
+chol        0
+fbs         0
+restecg     0
+thalach     0
+exang       0
+oldpeak     0
+slope       1
+target      0
+source      0
+dtype: int64
+
+Duplicate rows:
+1298
+
+Class distribution:
+target
+1    1320
+0    1198
+Name: count, dtype: int64
+
+Class percentages:
+target
+1    52.42
+0    47.58
+Name: proportion, dtype: float64
+target           0    1  Total  Positive_%
+source                                    
+IEEE_DataPort  561  629   1190       52.86
+Kaggle_1       138  165    303       54.46
+Kaggle_2       499  526   1025       51.32
+Rows before duplicate removal: 2518
+Rows after duplicate removal: 1220
+Duplicates removed: 1298
+
+Physiologically implausible zero values recoded as missing:
+    Feature  Zero_count_before_recode  Zero_percent_before_recode
+0  trestbps                         1                      0.0820
+1      chol                       172                     14.0984
+
+Missing values after zero-value recoding:
+age           0
+sex           0
+cp            0
+trestbps      1
+chol        172
+fbs           0
+restecg       0
+thalach       0
+exang         0
+oldpeak       0
+slope         1
+target        0
+source        0
+dtype: int64
+
+Class distribution after duplicate removal:
+   Target  Count  Percent
+0       0    548    44.92
+1       1    672    55.08
+X: (1220, 11)
+y: (1220,)
+Training samples: 732
+Test samples: 488
+
+Training class distribution:
+target
+1    0.5505
+0    0.4495
+Name: proportion, dtype: float64
+
+Test class distribution:
+target
+1    0.5512
+0    0.4488
+Name: proportion, dtype: float64
+Before augmentation: (732, 11)
+After training-only median imputation: (732, 11)
+After augmentation: (1098, 11)
+Training-only medians used in demonstration: {'trestbps': 130.0, 'chol': 237.5}
+
+Class distribution before:
+target
+1    0.551
+0    0.449
+Name: proportion, dtype: float64
+
+Class distribution after:
+1    0.555
+0    0.445
+Name: proportion, dtype: float64
+
+======================================================================
+Logistic Regression
+======================================================================
+
+======================================================================
+KNN
+======================================================================
+
+======================================================================
+SVM
+======================================================================
+
+======================================================================
+Decision Tree
+======================================================================
+
+======================================================================
+Random Forest
+======================================================================
+
+======================================================================
+Ridge Classifier
+======================================================================
+
+======================================================================
+LightGBM
+======================================================================
+
+======================================================================
+XGBoost
+======================================================================
+
+======================================================================
+FRIEDMAN TEST - NESTED CV ROC-AUC
+======================================================================
+Number of models     : 8
+Number of outer folds: 10
+Friedman statistic   : 24.780167
+p-value              : 0.0008299708
+Result: Significant overall difference among the models.
+
+Running: Logistic Regression
+
+Running: KNN
+
+Running: SVM
+
+Running: Decision Tree
+
+Running: Random Forest
+
+Running: Ridge Classifier
+
+Running: LightGBM
+
+Running: XGBoost
+
+======================================================================
+Final tuning: Logistic Regression
+======================================================================
+{'Model': 'Logistic Regression', 'Accuracy': 0.7971311475409836, 'Precision': 0.7972027972027972, 'Recall': 0.8475836431226765, 'F1': 0.8216216216216217, 'ROC_AUC': 0.8514538880684421, 'Brier_Score': 0.1519081992227518, 'Best_Params': "{'model__C': 100, 'model__penalty': 'l2'}"}
+
+======================================================================
+Final tuning: KNN
+======================================================================
+{'Model': 'KNN', 'Accuracy': 0.7827868852459017, 'Precision': 0.7781569965870307, 'Recall': 0.8475836431226765, 'F1': 0.8113879003558719, 'ROC_AUC': 0.8463444857496902, 'Brier_Score': 0.15686859893229518, 'Best_Params': "{'model__n_neighbors': 11, 'model__p': 1, 'model__weights': 'distance'}"}
+
+======================================================================
+Final tuning: SVM
+======================================================================
+{'Model': 'SVM', 'Accuracy': 0.7807377049180327, 'Precision': 0.7892857142857143, 'Recall': 0.8215613382899628, 'F1': 0.8051001821493625, 'ROC_AUC': 0.8589567313404967, 'Brier_Score': 0.1482460864427534, 'Best_Params': "{'model__C': 0.1, 'model__gamma': 'auto', 'model__kernel': 'rbf'}"}
+
+======================================================================
+Final tuning: Decision Tree
+======================================================================
+{'Model': 'Decision Tree', 'Accuracy': 0.7766393442622951, 'Precision': 0.7312138728323699, 'Recall': 0.9405204460966543, 'F1': 0.8227642276422764, 'ROC_AUC': 0.8530240532328428, 'Brier_Score': 0.15171194751441908, 'Best_Params': "{'model__max_depth': 3, 'model__min_samples_leaf': 4, 'model__min_samples_split': 2}"}
+
+======================================================================
+Final tuning: Random Forest
+======================================================================
+{'Model': 'Random Forest', 'Accuracy': 0.8155737704918032, 'Precision': 0.7953795379537953, 'Recall': 0.895910780669145, 'F1': 0.8426573426573427, 'ROC_AUC': 0.8829420651491233, 'Brier_Score': 0.14193891740320266, 'Best_Params': "{'model__max_depth': 5, 'model__max_features': 'sqrt', 'model__min_samples_leaf': 2, 'model__min_samples_split': 5, 'model__n_estimators': 500}"}
+
+======================================================================
+Final tuning: Ridge Classifier
+======================================================================
+{'Model': 'Ridge Classifier', 'Accuracy': 0.7868852459016393, 'Precision': 0.7815699658703071, 'Recall': 0.8513011152416357, 'F1': 0.8149466192170819, 'ROC_AUC': 0.8513350647587038, 'Brier_Score': nan, 'Best_Params': "{'model__alpha': 1}"}
+
+======================================================================
+Final tuning: LightGBM
+======================================================================
+{'Model': 'LightGBM', 'Accuracy': 0.8155737704918032, 'Precision': 0.8033898305084746, 'Recall': 0.8810408921933085, 'F1': 0.8404255319148937, 'ROC_AUC': 0.8808456824701668, 'Brier_Score': 0.13774476114754802, 'Best_Params': "{'model__learning_rate': 0.01, 'model__max_depth': -1, 'model__n_estimators': 300, 'model__num_leaves': 7, 'model__subsample': 0.8}"}
+
+======================================================================
+Final tuning: XGBoost
+======================================================================
+{'Model': 'XGBoost', 'Accuracy': 0.7950819672131147, 'Precision': 0.7734627831715211, 'Recall': 0.8884758364312267, 'F1': 0.8269896193771626, 'ROC_AUC': 0.8764746821476466, 'Brier_Score': 0.16063557181973295, 'Best_Params': "{'model__colsample_bytree': 0.8, 'model__gamma': 0.1, 'model__learning_rate': 0.01, 'model__max_depth': 5, 'model__n_estimators': 100, 'model__subsample': 0.8}"}
